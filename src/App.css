@@ -94,3 +94,8 @@ a {
 .appBody {
     flex: 1;
 }
+
+.VicotryContainer {
+    height: initial !important;
+
+}
