@@ -9,6 +9,7 @@ import Error from '../../Helper/Error';
 
 import styles from './LoginForm.module.css';
 import stylesBtn from '../../Forms/Button.module.css';
+import Head from '../../Helper/Head';
 
 const LoginForm = () => {
   const username = useForm();
@@ -27,24 +28,25 @@ const LoginForm = () => {
 
   return (
     <section className="animeLeft">
-        <h1 className="title">Login</h1>
-        <form className={styles.form} onSubmit={handleSubmit}>
-          <Input label="Usuário" type="text" name="username" {...username} />
-          <Input label="Senha" type="password" name="password" {...password} />
-          { loading ? (
-              <Button disabled>Carregando...</Button>
-            ) : (
-              <Button>Entrar</Button>
-            )
-          }
-          <Error error={error} />
-        </form>
-        <Link className={styles.recuperar} to="/login/recuperar">Perdeu a senha?</Link>
-        <div className={styles.cadastro}>
-          <h2 className={styles.subtitle}>Cadastre-se</h2>
-          <p>Ainda não possui conta? Cadastre-se no site.</p>
-          <Link className={stylesBtn.button} to="/login/criar">Cadastrar</Link>
-        </div>
+      <Head title="Login" />
+      <h1 className="title">Login</h1>
+      <form className={styles.form} onSubmit={handleSubmit}>
+        <Input label="Usuário" type="text" name="username" {...username} />
+        <Input label="Senha" type="password" name="password" {...password} />
+        { loading ? (
+            <Button disabled>Carregando...</Button>
+          ) : (
+            <Button>Entrar</Button>
+          )
+        }
+        <Error error={error} />
+      </form>
+      <Link className={styles.recuperar} to="/login/recuperar">Perdeu a senha?</Link>
+      <div className={styles.cadastro}>
+        <h2 className={styles.subtitle}>Cadastre-se</h2>
+        <p>Ainda não possui conta? Cadastre-se no site.</p>
+        <Link className={stylesBtn.button} to="/login/criar">Cadastrar</Link>
+      </div>
     </section>
   )
 }
